@@ -13,6 +13,7 @@ class NavigationMenu extends StatelessWidget {
       backgroundColor: Colors.green,
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.green,
+        color: Colors.green.shade300,
         items: [
         SvgPicture.asset("assets/images/svgimages/home.svg"),
         SvgPicture.asset("assets/images/svgimages/voucher.svg"),

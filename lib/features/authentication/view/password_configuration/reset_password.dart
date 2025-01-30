@@ -1,4 +1,6 @@
 
+import 'package:authentication/features/authentication/view/login/login_view.dart';
+import 'package:authentication/features/authentication/view/password_configuration/forgot_password.dart';
 import 'package:authentication/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -37,12 +39,14 @@ class ResetPassword extends StatelessWidget {
               const SizedBox(height: WNSizes.spaceBtwSections),
 
               ///Buttons
-              SizedBox(width: double.infinity, child: ElevatedButton(onPressed: (){}, child: const Text(WNTexts.done)),),
+              SizedBox(width: double.infinity, child: ElevatedButton(onPressed: ()=> Get.to(LoginView()),
+                  child: const Text(WNTexts.done)),),
               const SizedBox(height: WNSizes.spaceBtwSections),
 
               SizedBox(
                 width: double.infinity,
-                child: TextButton(onPressed: (){}, child: const Text(WNTexts.resendEmail)),),
+                child: TextButton(onPressed: () => Get.to (ForgotPassword()),
+                    child: const Text(WNTexts.resendEmail)),),
 
             ],
           ),
