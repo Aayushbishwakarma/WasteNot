@@ -1,13 +1,12 @@
 import 'package:authentication/features/shop/screens/home/home.dart';
-import 'package:authentication/utils/constants/colors.dart';
+import 'package:authentication/features/shop/screens/profile/profile.dart';
+import 'package:authentication/features/shop/screens/voucher/voucher.dart';
 import 'package:authentication/utils/helpers/helper_functions.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart%20';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:get/get.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -15,43 +14,77 @@ class NavigationMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = WNHelperFunctions.isDarkMode(context);
-    return Scaffold(
+    final controller = Get.put(NavigationController());
 
-      backgroundColor: dark ? Colors.black38 : Colors.white,
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.grey.shade300,
-        color: dark ? Colors.black38: Colors.white60,
-        items: [
-        SvgPicture.asset("assets/images/svgimages/home.svg",
-        colorFilter: ColorFilter.mode(
-          dark ? Colors.white : Colors.black,
-          BlendMode.srcIn,
-        ),
-        ),
-        SvgPicture.asset("assets/images/svgimages/voucher.svg",
-          colorFilter: ColorFilter.mode(
-          dark ? Colors.white : Colors.black,
-          BlendMode.srcIn,
-        ),
-        ),
-        SvgPicture.asset("assets/images/svgimages/qr.svg",
-          colorFilter: ColorFilter.mode(
-            dark ? Colors.white : Colors.black,
-            BlendMode.srcIn,
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 40),
+        child: FloatingActionButton(
+          onPressed: () {},
+          tooltip: 'Increment',
+          elevation: 1.0,
+          child: SvgPicture.asset(
+            "assets/images/svgimages/qr.svg",
+            colorFilter: ColorFilter.mode(
+              dark ? Colors.white : Colors.black,
+              BlendMode.srcIn,
+            ),
           ),
         ),
-        SvgPicture.asset("assets/images/svgimages/person.svg",
-          colorFilter: ColorFilter.mode(
-            dark ? Colors.white : Colors.black,
-            BlendMode.srcIn,
-          ),
-        ),
-        ],
       ),
+      backgroundColor: dark ? Colors.black38 : Colors.white,
+      bottomNavigationBar: Obx(
+            () => CurvedNavigationBar(
+          backgroundColor: Colors.grey.shade300,
+          color: dark ? Colors.black38 : Colors.white60,
+          height: 60,
+          index: controller.selectedIndex.value,
+          onTap: (index) => controller.selectedIndex.value = index,
+          items: [
+            SvgPicture.asset(
+              "assets/images/svgimages/home.svg",
+              colorFilter: ColorFilter.mode(
+                dark ? Colors.white : Colors.black,
+                BlendMode.srcIn,
+              ),
+            ),
+            SvgPicture.asset(
+              "assets/images/svgimages/voucher.svg",
+              colorFilter: ColorFilter.mode(
+                dark ? Colors.white : Colors.black,
+                BlendMode.srcIn,
+              ),
+            ),
+            SvgPicture.asset(
+              "assets/images/svgimages/cart.svg",
+              colorFilter: ColorFilter.mode(
+                dark ? Colors.white : Colors.black,
+                BlendMode.srcIn,
+              ),
+            ),
+            SvgPicture.asset(
+              "assets/images/svgimages/person.svg",
+              colorFilter: ColorFilter.mode(
+                dark ? Colors.white : Colors.black,
+                BlendMode.srcIn,
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: Obx(() => controller.screens[controller.selectedIndex.value]),
     );
   }
 }
 
-
+class NavigationController extends GetxController {
+  final Rx<int> selectedIndex = 0.obs;
+  final screens = [
+    const HomeScreen(),
+    VoucherScreen(),
+    Container(color: Colors.red),
+  ];
+}
 
 

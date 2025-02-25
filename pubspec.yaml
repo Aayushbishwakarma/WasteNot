@@ -40,10 +40,15 @@ dependencies:
 
   curved_navigation_bar: ^1.0.6
 
+  #Caurosel Slider
+  carousel_slider: ^4.2.1
+
   #SVG File#
   flutter_svg: ^2.0.17
+  google_fonts: ^6.1.0
 
   #------------/PACKAGES END--------#
+
 
 dev_dependencies:
   flutter_test:

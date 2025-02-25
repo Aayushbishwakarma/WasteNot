@@ -25,6 +25,12 @@ class WNImages{
   static const String qr = "assets/images/svgimages/qr.svg";
   static const String persondetail = "assets/images/svgimages/person.svg";
 
+  //-- Voucher images
+  static const String Burger = "assets/images/allimages/Burger.jpg";
+  static const String Coffe = "assets/images/allimages/Coffee.jpeg";
+  static const String Frenchfries = "assets/images/allimages/French Fries.jpg";
+  static const String Pizza = "assets/images/allimages/Pizza.jpeg";
+
 
 
 

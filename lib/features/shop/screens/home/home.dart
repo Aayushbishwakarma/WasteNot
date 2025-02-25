@@ -1,38 +1,51 @@
 
 
+import 'package:authentication/common/widgets/appbar/appbar.dart';
+import 'package:authentication/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 
-import '../../../../utils/constants/colors.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              color: WNColors.primary,
-              padding: const EdgeInsets.all(0),
-              child: Stack(
+            /// Header --
+            WNPrimaryHeaderContainer(
+              child: Column(
                 children: [
-                  Container(
-                    width: 400,
-                    height: 400,
-                    padding:const EdgeInsets.all(0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(400),
-                      color: WNColors.textWhite.withOpacity(0.1),
-                    ),
-                  )
+                  WNAppBar(
+                    title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(WNTexts.homeAppbarTittle,style: Theme.of(context).textTheme.labelMedium!.copyWith(fontSize:25,color: Colors.grey)),
+                      Text(WNTexts.homeAppbarSubTittle,style: Theme.of(context).textTheme.labelMedium!.copyWith(fontSize:15,color: Colors.white)),
+                    ],
+                  ),
+                    action: [
+                      Stack(
+                        children: [
+                          IconButton(onPressed: (){}, icon: const Icon(Iconsax.shopping_cart2, color: Colors.white))
+                        ],
+                      )
+                    ]
+                  ),
                 ],
-              ),
-            )
+              )
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
+
