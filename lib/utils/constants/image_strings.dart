@@ -41,6 +41,10 @@ class WNImages{
   static const String shopnow = "assets/images/allimages/shop now.jpg";
   static const String womens = "assets/images/allimages/womens.jpg";
 
+  //-- Redeem Detail Screen
+  static const String extraburger = "assets/images/allimages/ExtraBurger.png";
+
+
 
 
 

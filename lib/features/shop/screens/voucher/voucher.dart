@@ -67,22 +67,25 @@ class _VoucherScreenState extends State<VoucherScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFD9F9B8),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
-              _buildHeader(),
-              const SizedBox(height: 10),
-              _buildSearchBar(),
-              const SizedBox(height: 20),
-              _buildPointsCard(),
-              const SizedBox(height: 20),
-              _buildCarouselSection(),
-              const SizedBox(height: 20),
-              _buildFoodGrid(),
-            ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                _buildHeader(),
+                const SizedBox(height: 10),
+                _buildSearchBar(),
+                const SizedBox(height: 20),
+                _buildPointsCard(),
+                const SizedBox(height: 20),
+                _buildCarouselSection(),
+                const SizedBox(height: 20),
+                _buildFoodGridNonScrollable(),
+                const SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),
@@ -220,20 +223,20 @@ class _VoucherScreenState extends State<VoucherScreen> {
     );
   }
 
-  Widget _buildFoodGrid() {
-    return Expanded(
-      child: GridView.builder(
-        itemCount: foodItems.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 15,
-          childAspectRatio: 0.75,
-        ),
-        itemBuilder: (context, index) {
-          return _buildFoodCard(foodItems[index]);
-        },
+  Widget _buildFoodGridNonScrollable() {
+    return GridView.builder(
+      itemCount: foodItems.length,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 15,
+        mainAxisSpacing: 15,
+        childAspectRatio: 0.75,
       ),
+      itemBuilder: (context, index) {
+        return _buildFoodCard(foodItems[index]);
+      },
     );
   }
 
@@ -270,6 +273,32 @@ class _VoucherScreenState extends State<VoucherScreen> {
               color: Colors.grey,
             ),
           ),
+          const SizedBox(height: 4),
+          // New Row for Rating and Favorite Icon
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                item["rating"].toString(),
+                style: GoogleFonts.poppins(
+                  fontSize: 12,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(width:2),
+              Icon(
+                Iconsax.star1, // Use the star icon for rating
+                size: 16,
+                color: Colors.amber,
+              ),
+              const SizedBox(width: 100),
+              Icon(
+                Iconsax.heart, // Use the heart icon for favorite
+                size: 16,
+                color: Colors.black,
+              ),
+            ],
+          ),
           const SizedBox(height: 8),
           ElevatedButton(
             onPressed: () => Get.to(RedeemDetailScreen()),
@@ -289,4 +318,3 @@ class _VoucherScreenState extends State<VoucherScreen> {
     );
   }
 }
-

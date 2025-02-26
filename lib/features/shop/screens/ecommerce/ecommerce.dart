@@ -122,7 +122,7 @@ class EcommerceScreen extends StatelessWidget {
       child: Row(
         children: categories.map((category) {
           return Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.only(right: 18),
             child: Column(
               children: [
                 CircleAvatar(

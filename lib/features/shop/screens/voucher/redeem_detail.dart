@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 
-class RedeemDetailScreen extends StatelessWidget {
+class RedeemDetailScreen extends StatefulWidget {
+  @override
+  _RedeemDetailScreenState createState() => _RedeemDetailScreenState();
+}
+
+class _RedeemDetailScreenState extends State<RedeemDetailScreen> {
+  // State variable to track the spicy level
+  double _spicyLevel = 0.3;
+  int _quantity = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFD9F9B8),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -26,10 +35,13 @@ class RedeemDetailScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Image.asset(
-                  "assets/images/allimages/Burger.jpg",
-                  height: 200,
-                  fit: BoxFit.fitWidth,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    "assets/images/allimages/ExtraBurger.png",
+                    height: 200,
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
               SizedBox(height: 16),
@@ -70,8 +82,12 @@ class RedeemDetailScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Slider(
-                value: 0.3,
-                onChanged: (value) {},
+                value: _spicyLevel,
+                onChanged: (value) {
+                  setState(() {
+                    _spicyLevel = value;
+                  });
+                },
                 min: 0,
                 max: 1,
                 activeColor: Colors.green,
@@ -92,24 +108,36 @@ class RedeemDetailScreen extends StatelessWidget {
                     "Portion",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.remove, color: Colors.black),
-                        style: IconButton.styleFrom(
-                          backgroundColor: Colors.grey[300],
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              if (_quantity > 1) {
+                                _quantity--;
+                              }
+                            });
+                          },
+                          icon: Icon(Icons.remove, color: Colors.black),
+                          iconSize: 18,
                         ),
-                      ),
-                      Text("2", style: TextStyle(fontSize: 16)),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.add, color: Colors.black),
-                        style: IconButton.styleFrom(
-                          backgroundColor: Colors.grey[300],
+                        Text("$_quantity", style: TextStyle(fontSize: 16)),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _quantity++;
+                            });
+                          },
+                          icon: Icon(Icons.add, color: Colors.black),
+                          iconSize: 18,
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -125,9 +153,10 @@ class RedeemDetailScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
+                        elevation: 3,
                       ),
                       child: Text(
-                        "\$8.24",
+                        "150 Points",
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),
@@ -142,6 +171,7 @@ class RedeemDetailScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
+                        elevation: 3,
                       ),
                       child: Text(
                         "Redeem Now",
@@ -154,6 +184,16 @@ class RedeemDetailScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: Container(
+        height: 5,
+        width: 100,
+        margin: EdgeInsets.only(bottom: 20),
+        decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(2.5),
+        ),
+        alignment: Alignment.center,
       ),
     );
   }
