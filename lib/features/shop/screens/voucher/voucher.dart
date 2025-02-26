@@ -1,6 +1,10 @@
 import 'dart:async';
 import 'dart:ui';
+import 'package:authentication/features/shop/screens/voucher/redeem_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -112,7 +116,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
     return TextField(
       decoration: InputDecoration(
         hintText: "Search your foods...",
-        hintStyle: const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic), // Text color fixed
+        hintStyle: const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
         prefixIcon: const Icon(Iconsax.search_normal, color: Colors.black54),
         filled: true,
         fillColor: Colors.white,
@@ -177,7 +181,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
   }
 
   Widget _buildCarouselItem(int index, int currentIndex) {
-    bool isCenter = index == currentIndex; // Center item check
+    bool isCenter = index == currentIndex;
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
@@ -201,12 +205,12 @@ class _VoucherScreenState extends State<VoucherScreen> {
               foodItems[index]["image"],
               fit: BoxFit.cover,
             ),
-            if (!isCenter) // Apply blur only to side images
+            if (!isCenter)
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
                   child: Container(
-                    color: Colors.black.withOpacity(0.2), // Dark overlay
+                    color: Colors.black.withOpacity(0.2),
                   ),
                 ),
               ),
@@ -266,8 +270,23 @@ class _VoucherScreenState extends State<VoucherScreen> {
               color: Colors.grey,
             ),
           ),
+          const SizedBox(height: 8),
+          ElevatedButton(
+            onPressed: () => Get.to(RedeemDetailScreen()),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green.shade700,
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              elevation: 5,
+            ),
+            child: Text("Redeem", style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.bold)),
+          ),
         ],
       ),
     );
   }
 }
+

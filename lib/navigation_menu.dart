@@ -1,3 +1,4 @@
+import 'package:authentication/features/shop/screens/ecommerce/ecommerce.dart';
 import 'package:authentication/features/shop/screens/home/home.dart';
 import 'package:authentication/features/shop/screens/profile/profile.dart';
 import 'package:authentication/features/shop/screens/voucher/voucher.dart';
@@ -20,15 +21,23 @@ class NavigationMenu extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 40),
-        child: FloatingActionButton(
-          onPressed: () {},
-          tooltip: 'Increment',
-          elevation: 1.0,
-          child: SvgPicture.asset(
-            "assets/images/svgimages/qr.svg",
-            colorFilter: ColorFilter.mode(
-              dark ? Colors.white : Colors.black,
-              BlendMode.srcIn,
+        child: Container(
+
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+          ),
+          child: FloatingActionButton(
+
+            onPressed: () {},
+            tooltip: 'Increment',
+            elevation: 1.0,
+            child: SvgPicture.asset(
+
+              "assets/images/svgimages/qr.svg",
+              colorFilter: ColorFilter.mode(
+                dark ? Colors.white : Colors.black,
+                BlendMode.srcIn,
+              ),
             ),
           ),
         ),
@@ -83,7 +92,7 @@ class NavigationController extends GetxController {
   final screens = [
     const HomeScreen(),
     VoucherScreen(),
-    Container(color: Colors.red),
+    EcommerceScreen(),
   ];
 }
 

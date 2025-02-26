@@ -31,6 +31,16 @@ class WNImages{
   static const String Frenchfries = "assets/images/allimages/French Fries.jpg";
   static const String Pizza = "assets/images/allimages/Pizza.jpeg";
 
+  //-- Ecommerce Screen
+  static const String beauty = "assets/images/allimages/beauty.jpg";
+  static const String fashion = "assets/images/allimages/fashion.jpg";
+  static const String kids = "assets/images/allimages/kids clothing.jpg";
+  static const String mens = "assets/images/allimages/mens clothing .jpg";
+  static const String kurta = "assets/images/allimages/printed kurta.jpg";
+  static const String shoes = "assets/images/allimages/shoes.jpg";
+  static const String shopnow = "assets/images/allimages/shop now.jpg";
+  static const String womens = "assets/images/allimages/womens.jpg";
+
 
 
 
