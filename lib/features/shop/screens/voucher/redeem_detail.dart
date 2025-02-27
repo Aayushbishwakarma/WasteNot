@@ -72,7 +72,7 @@ class _RedeemDetailScreenState extends State<RedeemDetailScreen> {
               Text(
                 "The Cheeseburger Wendy's Burger is a classic fast food "
                     "burger that packs a punch of flavor in every bite. "
-                    "Made with a juicy beef patty cooked to perfection, it's "
+                    "Made with a juicy Chicken patty cooked to perfection, it's "
                     "topped with melted American cheese, crispy lettuce, ripe tomato, and crunchy pickles.",
                 style: TextStyle(fontSize: 14, color: Colors.grey[700]),
               ),

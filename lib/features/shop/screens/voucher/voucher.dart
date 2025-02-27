@@ -21,10 +21,19 @@ class _VoucherScreenState extends State<VoucherScreen> {
   final ValueNotifier<int> _currentIndex = ValueNotifier<int>(0);
   Timer? _autoPlayTimer;
 
-  final List<Map<String, dynamic>> foodItems = [
+  // Updated carousel images to use Voucher_images folder
+  final List<Map<String, dynamic>> carouselItems = [
     {"name": "Burger", "subtext": "Delicious Burger", "rating": 4.7, "points": 200, "image": "assets/images/allimages/Burger.jpg"},
     {"name": "Pizza", "subtext": "Cheesy Pizza", "rating": 4.8, "points": 300, "image": "assets/images/allimages/Pizza.jpeg"},
     {"name": "Coffee", "subtext": "Hot Coffee", "rating": 4.6, "points": 150, "image": "assets/images/allimages/Coffee.jpeg"},
+    {"name": "French Fries", "subtext": "Crispy Fries", "rating": 4.5, "points": 250, "image": "assets/images/allimages/French Fries.jpg"},
+  ];
+
+  // Keeping the original food items for the redeem section
+  final List<Map<String, dynamic>> foodItems = [
+    {"name": "Burger", "subtext": "Delicious Burger", "rating": 4.7, "points": 200, "image": "assets/images/Voucher_images/Burger.png"},
+    {"name": "Pizza", "subtext": "Cheesy Pizza", "rating": 4.8, "points": 300, "image": "assets/images/Voucher_images/Pizza.png"},
+    {"name": "Coffee", "subtext": "Hot Coffee", "rating": 4.6, "points": 150, "image": "assets/images/Voucher_images/Coffee.png"},
     {"name": "French Fries", "subtext": "Crispy Fries", "rating": 4.5, "points": 250, "image": "assets/images/allimages/French Fries.jpg"},
   ];
 
@@ -43,7 +52,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
   void _startAutoPlay() {
     _autoPlayTimer = Timer.periodic(const Duration(seconds: 3), (timer) {
       if (_pageController.hasClients) {
-        final nextPage = (_currentIndex.value + 1) % foodItems.length;
+        final nextPage = (_currentIndex.value + 1) % carouselItems.length;
         _pageController.animateToPage(
           nextPage,
           duration: const Duration(milliseconds: 600),
@@ -173,7 +182,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
         builder: (context, currentIndex, _) {
           return PageView.builder(
             controller: _pageController,
-            itemCount: foodItems.length,
+            itemCount: carouselItems.length,
             itemBuilder: (context, index) {
               return _buildCarouselItem(index, currentIndex);
             },
@@ -187,7 +196,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
     bool isCenter = index == currentIndex;
 
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 400),
       margin: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -205,7 +214,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
           fit: StackFit.expand,
           children: [
             Image.asset(
-              foodItems[index]["image"],
+              carouselItems[index]["image"],
               fit: BoxFit.cover,
             ),
             if (!isCenter)

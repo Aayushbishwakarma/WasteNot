@@ -26,10 +26,14 @@ class WNImages{
   static const String persondetail = "assets/images/svgimages/person.svg";
 
   //-- Voucher images
-  static const String Burger = "assets/images/allimages/Burger.jpg";
-  static const String Coffe = "assets/images/allimages/Coffee.jpeg";
-  static const String Frenchfries = "assets/images/allimages/French Fries.jpg";
-  static const String Pizza = "assets/images/allimages/Pizza.jpeg";
+  static const String burger = "assets/images/allimages/Burger.jpg";
+  static const String coffe = "assets/images/allimages/Coffee.jpeg";
+  static const String frenchfries = "assets/images/allimages/French Fries.jpg";
+  static const String pizza = "assets/images/allimages/Pizza.jpeg";
+  static const String largeBurger = "assets/images/Voucher_images/Burger.png";
+  static const String largeCoffee = "assets/images/Voucher_images/Coffee.png";
+  static const String largePizza = "assets/images/Voucher_images/Pizza.png";
+
 
   //-- Ecommerce Screen
   static const String beauty = "assets/images/allimages/beauty.jpg";
@@ -41,7 +45,7 @@ class WNImages{
   static const String shopnow = "assets/images/allimages/shop now.jpg";
   static const String womens = "assets/images/allimages/womens.jpg";
 
-  //-- Redeem Detail Screen
+  //-- Redeem Detail Screen of voucher
   static const String extraburger = "assets/images/allimages/ExtraBurger.png";
 
 
