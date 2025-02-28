@@ -40,10 +40,11 @@ class WNImages{
   static const String fashion = "assets/images/allimages/fashion.jpg";
   static const String kids = "assets/images/allimages/kids clothing.jpg";
   static const String mens = "assets/images/allimages/mens clothing .jpg";
-  static const String kurta = "assets/images/allimages/printed kurta.jpg";
-  static const String shoes = "assets/images/allimages/shoes.jpg";
   static const String shopnow = "assets/images/allimages/shop now.jpg";
   static const String womens = "assets/images/allimages/womens.jpg";
+  static const String printed_kurta = "assets/images/ecommerce_images/kurta.png";
+  static const String shoes = "assets/images/ecommerce_images/shoes.png";
+
 
   //-- Redeem Detail Screen of voucher
   static const String extraburger = "assets/images/allimages/ExtraBurger.png";

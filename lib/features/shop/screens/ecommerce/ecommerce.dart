@@ -7,8 +7,8 @@ class EcommerceScreen extends StatelessWidget {
   static const String fashion = "assets/images/allimages/fashion.jpg";
   static const String kids = "assets/images/allimages/kids clothing.jpg";
   static const String mens = "assets/images/allimages/mens clothing .jpg";
-  static const String kurta = "assets/images/allimages/printed kurta.jpg";
-  static const String shoes = "assets/images/allimages/shoes.jpg";
+  static const String printed_kurta = "assets/images/ecommerce_images/kurta.png";
+  static const String shoes = "assets/images/ecommerce_images/shoes.png";
   static const String shopnow = "assets/images/allimages/shop now.jpg";
   static const String womens = "assets/images/allimages/womens.jpg";
 
@@ -38,7 +38,7 @@ class EcommerceScreen extends StatelessWidget {
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -50,7 +50,7 @@ class EcommerceScreen extends StatelessWidget {
               _buildCategorySection(),
               const SizedBox(height: 20),
               _buildPromoBanner(context),
-              const SizedBox(height: 20),
+              const SizedBox(height: 25),
               _buildDealOfTheDay(),
             ],
           ),
@@ -218,16 +218,16 @@ class EcommerceScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 10),
+        const SizedBox(height: 15),
         Row(
           children: [
             Expanded(
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: _buildDealCard(kurta, "Women Printed Kurta", 4.5, "1000 Points"),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: _buildDealCard(printed_kurta, "Women Printed Kurta", 4.5, "1000 Points"),
               ),
             ),
-            const SizedBox(width: 10), // Space between the cards
+            const SizedBox(width: 5), // Space between the cards
             Expanded(
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -255,7 +255,7 @@ class EcommerceScreen extends StatelessWidget {
             child: Column(
               children: [
                 Text(title, style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w600)),
-                const SizedBox(height: 3),
+                const SizedBox(height: 15),
                 Text(
                   points,
                   style: GoogleFonts.poppins(
