@@ -78,11 +78,12 @@ class _VoucherScreenState extends State<VoucherScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
+                // Reduced top spacing from 20 to 10
+                const SizedBox(height: 1),
                 _buildHeader(),
                 const SizedBox(height: 10),
                 _buildSearchBar(),
@@ -294,7 +295,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
                   color: Colors.grey,
                 ),
               ),
-              const SizedBox(width:2),
+              const SizedBox(width: 2),
               Icon(
                 Iconsax.star1, // Use the star icon for rating
                 size: 16,
@@ -320,7 +321,10 @@ class _VoucherScreenState extends State<VoucherScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               elevation: 5,
             ),
-            child: Text("Redeem", style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.bold)),
+            child: Text(
+              "Redeem",
+              style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),
