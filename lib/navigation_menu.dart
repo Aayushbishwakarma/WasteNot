@@ -1,3 +1,4 @@
+import 'package:authentication/features/authentication/qr_scanner/view/qr_scan.dart';
 import 'package:authentication/features/shop/screens/ecommerce/ecommerce.dart';
 import 'package:authentication/features/shop/screens/home/home.dart';
 import 'package:authentication/features/shop/screens/profile/profile.dart';
@@ -27,8 +28,9 @@ class NavigationMenu extends StatelessWidget {
             shape: BoxShape.circle,
           ),
           child: FloatingActionButton(
-
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => const QRScanner()); // Navigate to QRScreen
+            },
             tooltip: 'Increment',
             elevation: 1.0,
             child: SvgPicture.asset(

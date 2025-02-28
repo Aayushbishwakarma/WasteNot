@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+
   #UTILITY PACKAGES
   http: ^1.2.2
   intl: ^0.20.1
@@ -46,6 +47,11 @@ dependencies:
   #SVG File#
   flutter_svg: ^2.0.17
   google_fonts: ^6.1.0
+
+  ## Dependencies
+  qr_code_scanner_plus: ^2.0.10+1
+  image_picker: ^1.1.2
+  google_ml_kit: ^0.19.0
 
   #------------/PACKAGES END--------#
 
