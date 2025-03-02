@@ -1,6 +1,5 @@
 
 import 'package:authentication/features/authentication/view/login/login_view.dart';
-import 'package:authentication/features/authentication/view/password_configuration/forgot_password.dart';
 import 'package:authentication/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
