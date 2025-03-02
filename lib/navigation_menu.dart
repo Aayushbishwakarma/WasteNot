@@ -8,7 +8,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:authentication/features/shop/screens/home/home.dart';
 import 'package:authentication/features/shop/screens/voucher/voucher.dart';
 import 'package:authentication/features/shop/screens/ecommerce/ecommerce.dart';
-import 'package:authentication/features/shop/screens/profile/profile.dart';
 import 'package:authentication/utils/helpers/helper_functions.dart';
 
 import 'features/authentication/qr_scanner/view/qr_scanner_view.dart';
@@ -95,7 +94,7 @@ class NavigationController extends GetxController {
 
   // Update with your actual screens
   final screens = [
-    const HomeScreen(),
+    HomeScreen(),
     VoucherScreen(),
     EcommerceScreen(),
   ];

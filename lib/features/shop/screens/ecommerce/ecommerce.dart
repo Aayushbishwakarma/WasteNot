@@ -22,13 +22,24 @@ class EcommerceScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
         elevation: 0,
-        title: Text(
-          "E-Commerce",
-          style: GoogleFonts.poppins(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+        title:  Column(
+          children: [
+            Text(
+              "E-Commerce",
+              style: GoogleFonts.poppins(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            Text(
+              "Turn Waste Into Best",
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                color: Colors.grey[700],
+              ),
+            ),
+          ],
         ),
         actions: [
           const Icon(Iconsax.profile_circle, size: 30, color: Colors.black),

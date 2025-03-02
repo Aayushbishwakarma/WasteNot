@@ -50,6 +50,15 @@ class WNImages{
   static const String extraburger = "assets/images/allimages/ExtraBurger.png";
 
 
+  //-- HomeScreen Images
+  static const bottle  = "assets/images/homescreen_images/Bottle.png";
+  static const can = "assets/images/homescreen_images/Can.png";
+  static const glass = "assets/images/homescreen_images/Glass.png";
+  static const coin = "assets/images/homescreen_images/coins.png";
+  static const credit_cards= "assets/images/homescreen_images/credit-card.png";
+
+
+
 
 
 
